@@ -1,0 +1,59 @@
+<html lang="en-US">
+<head>
+<title>HTML html tag</title>
+</head>
+
+
+<body>
+<textarea rows="20" cols="10" id="a"></textarea>
+<textarea rows="20" cols="10" id="b"></textarea>
+<textarea rows="20" cols="10" id="c"></textarea>
+
+<button id="calculate" onclick="calculate()">calculate</button>
+
+<textarea rows="20" cols="10" id="result" style="visibility:hidden"></textarea>
+</body>
+
+</body>
+
+<script type="text/javascript">
+
+
+function calculate() {
+	get_number()
+}
+
+function get_number() {
+	var a_text = document.getElementById("a").value.trim();
+	var a_number = a_text.split(/\r?\n/)
+
+	var b_text = document.getElementById("b").value.trim();
+	var b_number = b_text.split(/\r?\n/)
+
+	var c_text = document.getElementById("c").value.trim();
+	var c_number = c_text.split(/\r?\n/)
+
+	result = []
+
+	for (var i = 0; i < a_number.length; i++) {
+		var number = a_number[i];
+		if (b_number.includes(number) && c_number.includes(number) ) {
+			result.push(number)
+		}
+	}
+
+	display_text(result)
+
+}
+
+function display_text(array_of_number) {
+	var result = document.getElementById("result")
+	var text = array_of_number.join("\n")
+	result.value = text
+	result.style.visibility = "visible"
+}
+
+</script>
+
+
+</html>
